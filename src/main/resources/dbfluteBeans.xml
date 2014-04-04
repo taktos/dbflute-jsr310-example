@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans
-    PUBLIC "-//SPRING//DTD BEAN//EN"
-    "http://www.springframework.org/dtd/spring-beans.dtd"
->
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <!-- The components of DBFlute Runtime. -->
-    <bean id="introduction" class="com.example.dbflute.jsr310.allcommon.DBFluteInitializer">
+    <bean id="introduction" class="com.example.dbflute.jsr310.extend.ExtendedDBFluteInitializer">
         <constructor-arg index="0"><ref bean="dataSource"/></constructor-arg>
     </bean>
     <bean id="invokerAssistant" class="com.example.dbflute.jsr310.allcommon.ImplementedInvokerAssistant" autowire="byType">

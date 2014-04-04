@@ -47,13 +47,13 @@ import com.example.dbflute.jsr310.exentity.*;
  * Long purchaseId = entity.getPurchaseId();
  * Integer memberId = entity.getMemberId();
  * Integer productId = entity.getProductId();
- * java.sql.Timestamp purchaseDatetime = entity.getPurchaseDatetime();
+ * java.time.LocalDateTime purchaseDatetime = entity.getPurchaseDatetime();
  * Integer purchaseCount = entity.getPurchaseCount();
  * Integer purchasePrice = entity.getPurchasePrice();
  * Integer paymentCompleteFlg = entity.getPaymentCompleteFlg();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
  * entity.setPurchaseId(purchaseId);
@@ -96,7 +96,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
     protected Integer _productId;
 
     /** PURCHASE_DATETIME: {UQ+, IX, NotNull, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _purchaseDatetime;
+    protected java.time.LocalDateTime _purchaseDatetime;
 
     /** PURCHASE_COUNT: {NotNull, INTEGER(10)} */
     protected Integer _purchaseCount;
@@ -108,13 +108,13 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
     protected Integer _paymentCompleteFlg;
 
     /** REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
     /** UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
@@ -447,7 +447,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
      * 購入日時: 購入した瞬間の日時。
      * @return The value of the column 'PURCHASE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getPurchaseDatetime() {
+    public java.time.LocalDateTime getPurchaseDatetime() {
         return _purchaseDatetime;
     }
 
@@ -456,7 +456,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
      * 購入日時: 購入した瞬間の日時。
      * @param purchaseDatetime The value of the column 'PURCHASE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setPurchaseDatetime(java.sql.Timestamp purchaseDatetime) {
+    public void setPurchaseDatetime(java.time.LocalDateTime purchaseDatetime) {
         __modifiedProperties.addPropertyName("purchaseDatetime");
         this._purchaseDatetime = purchaseDatetime;
     }
@@ -524,7 +524,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
      * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br />
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         return _registerDatetime;
     }
 
@@ -532,7 +532,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
      * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br />
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         __modifiedProperties.addPropertyName("registerDatetime");
         this._registerDatetime = registerDatetime;
     }
@@ -558,7 +558,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
      * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br />
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         return _updateDatetime;
     }
 
@@ -566,7 +566,7 @@ public abstract class BsPurchase implements Entity, Serializable, Cloneable {
      * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br />
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         __modifiedProperties.addPropertyName("updateDatetime");
         this._updateDatetime = updateDatetime;
     }

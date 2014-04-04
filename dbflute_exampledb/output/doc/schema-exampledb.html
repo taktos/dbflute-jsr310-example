@@ -552,7 +552,7 @@ MEMBER
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 正式会員日時:&nbsp;会員が正式に確定した(正式会員になった)日時。<br />一度確定したらもう二度と更新されないはずだ！</td>
 		<td class="subcell">formalizedDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">6</td>
@@ -569,7 +569,7 @@ MEMBER
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 生年月日:&nbsp;必須項目ではないので、このデータがない会員もいる。</td>
 		<td class="subcell">birthdate</td>
-		<td class="subcell">Date</td>
+		<td class="subcell">LocalDate</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">7</td>
@@ -586,7 +586,7 @@ MEMBER
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 登録日時:&nbsp;レコードが登録された日時。<br />会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br />仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">8</td>
@@ -620,7 +620,7 @@ MEMBER
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 更新日時:&nbsp;レコードが（最後に）更新された日時。<br />業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">10</td>
@@ -730,7 +730,7 @@ MEMBER_ADDRESS
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 有効開始日:&nbsp;一つの有効期間の開始を示す日付。<br />前の有効終了日の次の日の値が格納される。</td>
 		<td class="subcell">validBeginDate</td>
-		<td class="subcell">Date</td>
+		<td class="subcell">LocalDate</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
@@ -747,7 +747,7 @@ MEMBER_ADDRESS
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 有効終了日:&nbsp;有効期間の終了日。<br />期間の最後の日が格納される。基本的に、次の有効開始日の一日前の値となるが、次の有効期間がない場合は&nbsp;9999/12/31&nbsp;となる。</td>
 		<td class="subcell">validEndDate</td>
-		<td class="subcell">Date</td>
+		<td class="subcell">LocalDate</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">5</td>
@@ -798,7 +798,7 @@ MEMBER_ADDRESS
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">8</td>
@@ -832,7 +832,7 @@ MEMBER_ADDRESS
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">10</td>
@@ -959,7 +959,7 @@ MEMBER_FOLLOWING
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> その瞬間:&nbsp;ふりかえるとちょっと恥ずかしい気持ちになる日時</td>
 		<td class="subcell">followDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 </table>
   <h2 id="member_login" title="type=TABLE, primaryKey={MEMBER_LOGIN_ID}, nameLength=12, columnCount=5">
@@ -1035,7 +1035,7 @@ MEMBER_LOGIN
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> ログイン日時:&nbsp;ログインした瞬間の日時。<br />同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)</td>
 		<td class="subcell">loginDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
@@ -1196,7 +1196,7 @@ MEMBER_SECURITY
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">7</td>
@@ -1230,7 +1230,7 @@ MEMBER_SECURITY
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">9</td>
@@ -1374,7 +1374,7 @@ MEMBER_SERVICE
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">6</td>
@@ -1408,7 +1408,7 @@ MEMBER_SERVICE
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">8</td>
@@ -1628,7 +1628,7 @@ MEMBER_WITHDRAWAL
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 退会日時:&nbsp;退会した瞬間の日時。<br />正式会員日時と違い、こっちは&nbsp;one-to-one&nbsp;の別テーブルで管理されている。</td>
 		<td class="subcell">withdrawalDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">5</td>
@@ -1645,7 +1645,7 @@ MEMBER_WITHDRAWAL
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">6</td>
@@ -1679,7 +1679,7 @@ MEMBER_WITHDRAWAL
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">8</td>
@@ -1857,7 +1857,7 @@ PRODUCT
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">8</td>
@@ -1891,7 +1891,7 @@ PRODUCT
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">10</td>
@@ -2170,7 +2170,7 @@ PURCHASE
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> 購入日時:&nbsp;購入した瞬間の日時。</td>
 		<td class="subcell">purchaseDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">5</td>
@@ -2238,7 +2238,7 @@ PURCHASE
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">9</td>
@@ -2272,7 +2272,7 @@ PURCHASE
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">updateDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">11</td>
@@ -2671,7 +2671,7 @@ SUMMARY_PRODUCT
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="subcell">latestPurchaseDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 </table>
   <h2 id="summary_withdrawal" title="type=VIEW, primaryKey={}, nameLength=18, columnCount=9">
@@ -2790,7 +2790,7 @@ SUMMARY_WITHDRAWAL
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="subcell">withdrawalDatetime</td>
-		<td class="subcell">Timestamp</td>
+		<td class="subcell">LocalDateTime</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">7</td>

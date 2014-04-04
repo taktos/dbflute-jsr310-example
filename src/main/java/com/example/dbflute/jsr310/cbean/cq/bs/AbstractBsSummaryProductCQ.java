@@ -586,7 +586,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_Equal(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_Equal(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_EQ,  latestPurchaseDatetime);
     }
 
@@ -595,7 +595,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_GreaterThan(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_GreaterThan(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_GT,  latestPurchaseDatetime);
     }
 
@@ -604,7 +604,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_LessThan(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_LessThan(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_LT,  latestPurchaseDatetime);
     }
 
@@ -613,7 +613,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_GreaterEqual(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_GreaterEqual(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_GE,  latestPurchaseDatetime);
     }
 
@@ -622,36 +622,8 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_LessEqual(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_LessEqual(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_LE, latestPurchaseDatetime);
-    }
-
-    /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
-     * <pre>e.g. setLatestPurchaseDatetime_FromTo(fromDate, toDate, new <span style="color: #FD4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
-     * @param fromToOption The option of from-to. (NotNull)
-     */
-    public void setLatestPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueLatestPurchaseDatetime(), "LATEST_PURCHASE_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #FD4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of latestPurchaseDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setLatestPurchaseDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setLatestPurchaseDatetime_FromTo(fromDate, toDate, new FromToOption().compareAsDate());
     }
 
     /**

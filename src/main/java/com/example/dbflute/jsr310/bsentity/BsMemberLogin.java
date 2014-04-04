@@ -46,7 +46,7 @@ import com.example.dbflute.jsr310.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long memberLoginId = entity.getMemberLoginId();
  * Integer memberId = entity.getMemberId();
- * java.sql.Timestamp loginDatetime = entity.getLoginDatetime();
+ * java.time.LocalDateTime loginDatetime = entity.getLoginDatetime();
  * Integer mobileLoginFlg = entity.getMobileLoginFlg();
  * String loginMemberStatusCode = entity.getLoginMemberStatusCode();
  * entity.setMemberLoginId(memberLoginId);
@@ -79,7 +79,7 @@ public abstract class BsMemberLogin implements Entity, Serializable, Cloneable {
     protected Integer _memberId;
 
     /** LOGIN_DATETIME: {UQ+, IX, NotNull, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _loginDatetime;
+    protected java.time.LocalDateTime _loginDatetime;
 
     /** MOBILE_LOGIN_FLG: {NotNull, INTEGER(10)} */
     protected Integer _mobileLoginFlg;
@@ -387,7 +387,7 @@ public abstract class BsMemberLogin implements Entity, Serializable, Cloneable {
      * 同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)
      * @return The value of the column 'LOGIN_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getLoginDatetime() {
+    public java.time.LocalDateTime getLoginDatetime() {
         return _loginDatetime;
     }
 
@@ -397,7 +397,7 @@ public abstract class BsMemberLogin implements Entity, Serializable, Cloneable {
      * 同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)
      * @param loginDatetime The value of the column 'LOGIN_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setLoginDatetime(java.sql.Timestamp loginDatetime) {
+    public void setLoginDatetime(java.time.LocalDateTime loginDatetime) {
         __modifiedProperties.addPropertyName("loginDatetime");
         this._loginDatetime = loginDatetime;
     }

@@ -59,11 +59,11 @@ public class MemberAddressDbm extends AbstractDBMeta {
     }
     public static class EpgValidBeginDate implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getValidBeginDate(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setValidBeginDate((java.util.Date)vl); }
+        public void write(Entity et, Object vl) { ((MemberAddress)et).setValidBeginDate((java.time.LocalDate)vl); }
     }
     public static class EpgValidEndDate implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getValidEndDate(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setValidEndDate((java.util.Date)vl); }
+        public void write(Entity et, Object vl) { ((MemberAddress)et).setValidEndDate((java.time.LocalDate)vl); }
     }
     public static class EpgAddress implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getAddress(); }
@@ -75,7 +75,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
     }
     public static class EpgRegisterDatetime implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setRegisterDatetime((java.sql.Timestamp)vl); }
+        public void write(Entity et, Object vl) { ((MemberAddress)et).setRegisterDatetime((java.time.LocalDateTime)vl); }
     }
     public static class EpgRegisterUser implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getRegisterUser(); }
@@ -83,7 +83,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
     }
     public static class EpgUpdateDatetime implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getUpdateDatetime(); }
-        public void write(Entity et, Object vl) { ((MemberAddress)et).setUpdateDatetime((java.sql.Timestamp)vl); }
+        public void write(Entity et, Object vl) { ((MemberAddress)et).setUpdateDatetime((java.time.LocalDateTime)vl); }
     }
     public static class EpgUpdateUser implements PropertyGateway {
         public Object read(Entity et) { return ((MemberAddress)et).getUpdateUser(); }
@@ -108,15 +108,15 @@ public class MemberAddressDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberAddressId = cci("MEMBER_ADDRESS_ID", "MEMBER_ADDRESS_ID", null, null, true, "memberAddressId", Integer.class, true, true, "INTEGER", 10, 0, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_50632F2C_BA0C_4A45_8802_C86EB1BA6C10", false, null, null, null, null, null);
+    protected final ColumnInfo _columnMemberAddressId = cci("MEMBER_ADDRESS_ID", "MEMBER_ADDRESS_ID", null, null, true, "memberAddressId", Integer.class, true, true, "INTEGER", 10, 0, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_2CEB40A3_A6EF_4040_AB12_8070AFC3151C", false, null, null, null, null, null);
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, true, "memberId", Integer.class, false, false, "INTEGER", 10, 0, null, false, null, null, "member", null, null);
-    protected final ColumnInfo _columnValidBeginDate = cci("VALID_BEGIN_DATE", "VALID_BEGIN_DATE", null, null, true, "validBeginDate", java.util.Date.class, false, false, "DATE", 8, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnValidEndDate = cci("VALID_END_DATE", "VALID_END_DATE", null, null, true, "validEndDate", java.util.Date.class, false, false, "DATE", 8, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnValidBeginDate = cci("VALID_BEGIN_DATE", "VALID_BEGIN_DATE", null, null, true, "validBeginDate", java.time.LocalDate.class, false, false, "DATE", 8, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnValidEndDate = cci("VALID_END_DATE", "VALID_END_DATE", null, null, true, "validEndDate", java.time.LocalDate.class, false, false, "DATE", 8, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnAddress = cci("ADDRESS", "ADDRESS", null, null, true, "address", String.class, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnRegionId = cci("REGION_ID", "REGION_ID", null, null, true, "regionId", Integer.class, false, false, "INTEGER", 10, 0, null, false, null, null, "region", null, null);
-    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, null, true, "registerDatetime", java.sql.Timestamp.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, null, true, "registerDatetime", java.time.LocalDateTime.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, null, true, "registerUser", String.class, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, null, true, "updateDatetime", java.sql.Timestamp.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, null, true, "updateDatetime", java.time.LocalDateTime.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, null, true, "updateUser", String.class, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnVersionNo = cci("VERSION_NO", "VERSION_NO", null, null, true, "versionNo", Long.class, false, false, "BIGINT", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null);
 

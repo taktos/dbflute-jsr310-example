@@ -56,7 +56,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     }
     public static class EpgFollowDatetime implements PropertyGateway {
         public Object read(Entity et) { return ((MemberFollowing)et).getFollowDatetime(); }
-        public void write(Entity et, Object vl) { ((MemberFollowing)et).setFollowDatetime((java.sql.Timestamp)vl); }
+        public void write(Entity et, Object vl) { ((MemberFollowing)et).setFollowDatetime((java.time.LocalDateTime)vl); }
     }
 
     // ===================================================================================
@@ -73,10 +73,10 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberFollowingId = cci("MEMBER_FOLLOWING_ID", "MEMBER_FOLLOWING_ID", null, null, true, "memberFollowingId", Long.class, true, true, "BIGINT", 19, 0, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_209EBB25_99B8_4905_9539_A14EFF080C79", false, null, null, null, null, null);
+    protected final ColumnInfo _columnMemberFollowingId = cci("MEMBER_FOLLOWING_ID", "MEMBER_FOLLOWING_ID", null, null, true, "memberFollowingId", Long.class, true, true, "BIGINT", 19, 0, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_29524CE0_406B_4AA6_AE17_359726BCF38C", false, null, null, null, null, null);
     protected final ColumnInfo _columnMyMemberId = cci("MY_MEMBER_ID", "MY_MEMBER_ID", null, null, true, "myMemberId", Integer.class, false, false, "INTEGER", 10, 0, null, false, null, null, "memberByMyMemberId", null, null);
     protected final ColumnInfo _columnYourMemberId = cci("YOUR_MEMBER_ID", "YOUR_MEMBER_ID", null, null, true, "yourMemberId", Integer.class, false, false, "INTEGER", 10, 0, null, false, null, null, "memberByYourMemberId", null, null);
-    protected final ColumnInfo _columnFollowDatetime = cci("FOLLOW_DATETIME", "FOLLOW_DATETIME", null, null, true, "followDatetime", java.sql.Timestamp.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnFollowDatetime = cci("FOLLOW_DATETIME", "FOLLOW_DATETIME", null, null, true, "followDatetime", java.time.LocalDateTime.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
 
     public ColumnInfo columnMemberFollowingId() { return _columnMemberFollowingId; }
     public ColumnInfo columnMyMemberId() { return _columnMyMemberId; }

@@ -502,7 +502,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param withdrawalDatetime The value of withdrawalDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_Equal(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_Equal(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_EQ,  withdrawalDatetime);
     }
 
@@ -511,7 +511,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param withdrawalDatetime The value of withdrawalDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_GreaterThan(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_GreaterThan(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_GT,  withdrawalDatetime);
     }
 
@@ -520,7 +520,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param withdrawalDatetime The value of withdrawalDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_LessThan(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_LessThan(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_LT,  withdrawalDatetime);
     }
 
@@ -529,7 +529,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param withdrawalDatetime The value of withdrawalDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_GreaterEqual(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_GreaterEqual(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_GE,  withdrawalDatetime);
     }
 
@@ -538,36 +538,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param withdrawalDatetime The value of withdrawalDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setWithdrawalDatetime_LessEqual(java.sql.Timestamp withdrawalDatetime) {
+    public void setWithdrawalDatetime_LessEqual(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_LE, withdrawalDatetime);
-    }
-
-    /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
-     * <pre>e.g. setWithdrawalDatetime_FromTo(fromDate, toDate, new <span style="color: #FD4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (NullAllowed: if null, no to-condition)
-     * @param fromToOption The option of from-to. (NotNull)
-     */
-    public void setWithdrawalDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(23, 10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #FD4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of withdrawalDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of withdrawalDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setWithdrawalDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setWithdrawalDatetime_FromTo(fromDate, toDate, new FromToOption().compareAsDate());
     }
 
     protected void regWithdrawalDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueWithdrawalDatetime(), "WITHDRAWAL_DATETIME"); }
@@ -578,7 +550,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -587,7 +559,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param registerDatetime The value of registerDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GT,  registerDatetime);
     }
 
@@ -596,7 +568,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param registerDatetime The value of registerDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LT,  registerDatetime);
     }
 
@@ -605,7 +577,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GE,  registerDatetime);
     }
 
@@ -614,36 +586,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param registerDatetime The value of registerDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LE, registerDatetime);
-    }
-
-    /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
-     * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, new <span style="color: #FD4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
-     * @param fromToOption The option of from-to. (NotNull)
-     */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueRegisterDatetime(), "REGISTER_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #FD4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setRegisterDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setRegisterDatetime_FromTo(fromDate, toDate, new FromToOption().compareAsDate());
     }
 
     protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterDatetime(), "REGISTER_DATETIME"); }
@@ -776,7 +720,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
@@ -785,7 +729,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param updateDatetime The value of updateDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_GreaterThan(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_GreaterThan(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_GT,  updateDatetime);
     }
 
@@ -794,7 +738,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param updateDatetime The value of updateDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_LessThan(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_LessThan(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_LT,  updateDatetime);
     }
 
@@ -803,7 +747,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param updateDatetime The value of updateDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_GreaterEqual(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_GreaterEqual(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_GE,  updateDatetime);
     }
 
@@ -812,36 +756,8 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
      * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @param updateDatetime The value of updateDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_LessEqual(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_LessEqual(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_LE, updateDatetime);
-    }
-
-    /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
-     * <pre>e.g. setUpdateDatetime_FromTo(fromDate, toDate, new <span style="color: #FD4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (NullAllowed: if null, no to-condition)
-     * @param fromToOption The option of from-to. (NotNull)
-     */
-    public void setUpdateDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueUpdateDatetime(), "UPDATE_DATETIME", fromToOption);
-    }
-
-    /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
-     * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
-     * <pre>
-     * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
-     *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #FD4747">&lt; '2007/04/17 00:00:00'</span>
-     * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of updateDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of updateDatetime. (NullAllowed: if null, no to-condition)
-     */
-    public void setUpdateDatetime_DateFromTo(Date fromDate, Date toDate) {
-        setUpdateDatetime_FromTo(fromDate, toDate, new FromToOption().compareAsDate());
     }
 
     protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateDatetime(), "UPDATE_DATETIME"); }

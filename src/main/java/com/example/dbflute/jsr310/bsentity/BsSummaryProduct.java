@@ -46,7 +46,7 @@ import com.example.dbflute.jsr310.exentity.*;
  * String productName = entity.getProductName();
  * String productHandleCode = entity.getProductHandleCode();
  * String productStatusCode = entity.getProductStatusCode();
- * java.sql.Timestamp latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
+ * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
  * entity.setProductId(productId);
  * entity.setProductName(productName);
  * entity.setProductHandleCode(productHandleCode);
@@ -83,7 +83,7 @@ public abstract class BsSummaryProduct implements Entity, Serializable, Cloneabl
     protected String _productStatusCode;
 
     /** LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _latestPurchaseDatetime;
+    protected java.time.LocalDateTime _latestPurchaseDatetime;
 
     // -----------------------------------------------------
     //                                              Internal
@@ -367,7 +367,7 @@ public abstract class BsSummaryProduct implements Entity, Serializable, Cloneabl
      * [get] LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)} <br />
      * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getLatestPurchaseDatetime() {
+    public java.time.LocalDateTime getLatestPurchaseDatetime() {
         return _latestPurchaseDatetime;
     }
 
@@ -375,7 +375,7 @@ public abstract class BsSummaryProduct implements Entity, Serializable, Cloneabl
      * [set] LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)} <br />
      * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime(java.time.LocalDateTime latestPurchaseDatetime) {
         __modifiedProperties.addPropertyName("latestPurchaseDatetime");
         this._latestPurchaseDatetime = latestPurchaseDatetime;
     }

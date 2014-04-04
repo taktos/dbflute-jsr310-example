@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.Date;
 
 import org.seasar.dbflute.dbmeta.DBMeta;
 import org.seasar.dbflute.Entity;
@@ -50,11 +49,11 @@ import com.example.dbflute.jsr310.exentity.*;
  * String memberName = entity.getMemberName();
  * String memberAccount = entity.getMemberAccount();
  * String memberStatusCode = entity.getMemberStatusCode();
- * java.sql.Timestamp formalizedDatetime = entity.getFormalizedDatetime();
- * java.util.Date birthdate = entity.getBirthdate();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
  * entity.setMemberId(memberId);
@@ -99,19 +98,19 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
     protected String _memberStatusCode;
 
     /** FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _formalizedDatetime;
+    protected java.time.LocalDateTime _formalizedDatetime;
 
     /** BIRTHDATE: {DATE(8)} */
-    protected java.util.Date _birthdate;
+    protected java.time.LocalDate _birthdate;
 
     /** REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
     /** UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
@@ -495,7 +494,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
         sb.append(delimiter).append(getMemberAccount());
         sb.append(delimiter).append(getMemberStatusCode());
         sb.append(delimiter).append(getFormalizedDatetime());
-        sb.append(delimiter).append(xfUD(getBirthdate()));
+        sb.append(delimiter).append(getBirthdate());
         sb.append(delimiter).append(getRegisterDatetime());
         sb.append(delimiter).append(getRegisterUser());
         sb.append(delimiter).append(getUpdateDatetime());
@@ -506,12 +505,6 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
         }
         sb.insert(0, "{").append("}");
         return sb.toString();
-    }
-    protected String xfUD(Date date) { // formatUtilDate()
-        return InternalUtil.toString(date, xgDP());
-    }
-    protected String xgDP() { // getDatePattern
-        return "yyyy-MM-dd";
     }
     protected String buildRelationString() {
         StringBuilder sb = new StringBuilder();
@@ -639,7 +632,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 一度確定したらもう二度と更新されないはずだ！
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getFormalizedDatetime() {
+    public java.time.LocalDateTime getFormalizedDatetime() {
         return _formalizedDatetime;
     }
 
@@ -649,7 +642,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 一度確定したらもう二度と更新されないはずだ！
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setFormalizedDatetime(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
         __modifiedProperties.addPropertyName("formalizedDatetime");
         this._formalizedDatetime = formalizedDatetime;
     }
@@ -659,7 +652,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 生年月日: 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getBirthdate() {
+    public java.time.LocalDate getBirthdate() {
         return _birthdate;
     }
 
@@ -668,7 +661,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 生年月日: 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.util.Date birthdate) {
+    public void setBirthdate(java.time.LocalDate birthdate) {
         __modifiedProperties.addPropertyName("birthdate");
         this._birthdate = birthdate;
     }
@@ -680,7 +673,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         return _registerDatetime;
     }
 
@@ -691,7 +684,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         __modifiedProperties.addPropertyName("registerDatetime");
         this._registerDatetime = registerDatetime;
     }
@@ -723,7 +716,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         return _updateDatetime;
     }
 
@@ -733,7 +726,7 @@ public abstract class BsMember implements Entity, Serializable, Cloneable {
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         __modifiedProperties.addPropertyName("updateDatetime");
         this._updateDatetime = updateDatetime;
     }

@@ -69,7 +69,7 @@ public class SummaryWithdrawalDbm extends AbstractDBMeta {
     }
     public static class EpgWithdrawalDatetime implements PropertyGateway {
         public Object read(Entity et) { return ((SummaryWithdrawal)et).getWithdrawalDatetime(); }
-        public void write(Entity et, Object vl) { ((SummaryWithdrawal)et).setWithdrawalDatetime((java.sql.Timestamp)vl); }
+        public void write(Entity et, Object vl) { ((SummaryWithdrawal)et).setWithdrawalDatetime((java.time.LocalDateTime)vl); }
     }
     public static class EpgMemberStatusCode implements PropertyGateway {
         public Object read(Entity et) { return ((SummaryWithdrawal)et).getMemberStatusCode(); }
@@ -103,7 +103,7 @@ public class SummaryWithdrawalDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, null, false, "withdrawalReasonCode", String.class, false, false, "CHAR", 3, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnWithdrawalReasonText = cci("WITHDRAWAL_REASON_TEXT", "WITHDRAWAL_REASON_TEXT", null, null, false, "withdrawalReasonText", String.class, false, false, "CLOB", 2147483647, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnWithdrawalReasonInputText = cci("WITHDRAWAL_REASON_INPUT_TEXT", "WITHDRAWAL_REASON_INPUT_TEXT", null, null, false, "withdrawalReasonInputText", String.class, false, false, "CLOB", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnWithdrawalDatetime = cci("WITHDRAWAL_DATETIME", "WITHDRAWAL_DATETIME", null, null, false, "withdrawalDatetime", java.sql.Timestamp.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnWithdrawalDatetime = cci("WITHDRAWAL_DATETIME", "WITHDRAWAL_DATETIME", null, null, false, "withdrawalDatetime", java.time.LocalDateTime.class, false, false, "TIMESTAMP", 23, 10, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, false, "memberStatusCode", String.class, false, false, "CHAR", 3, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, false, "memberStatusName", String.class, false, false, "VARCHAR", 50, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnMaxPurchasePrice = cci("MAX_PURCHASE_PRICE", "MAX_PURCHASE_PRICE", null, null, false, "maxPurchasePrice", Integer.class, false, false, "INTEGER", 10, 0, null, false, null, null, null, null, null);
