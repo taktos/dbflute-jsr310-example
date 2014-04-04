@@ -24,6 +24,9 @@
 map:{
     # AutoMapping for Numeric and Decimal
     ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
+    ; DATE = java.time.LocalDate
+    ; TIME = java.time.LocalTime
+    ; TIMESTAMP = java.time.LocalDateTime
 }
 # ----------------/
 #

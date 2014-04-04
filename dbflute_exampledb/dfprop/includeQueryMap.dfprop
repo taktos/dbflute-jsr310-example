@@ -92,8 +92,8 @@ map:{
         #; !LessThan = map:{ $$ALL$$ = list:{ $$CommonColumn$$ } }
         #; !GreaterEqual = map:{ $$ALL$$ = list:{ $$CommonColumn$$ } }
         #; !LessEqual = map:{ $$ALL$$ = list:{ $$CommonColumn$$ } }
-        #; !FromTo = map:{ $$ALL$$ = list:{ $$CommonColumn$$ } }
-        #; !DateFromTo = map:{ $$ALL$$ = list:{ $$CommonColumn$$ } }
+        ; FromTo = map:{}
+        ; DateFromTo = map:{}
     }
 }
 # ----------------/
